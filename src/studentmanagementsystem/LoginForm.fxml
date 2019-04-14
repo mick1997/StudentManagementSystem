@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="studentmanagementsystem.LoginFormController" />
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studentmanagementsystem.LoginFormController">
+   <children>
+      <JFXRadioButton layoutX="94.0" layoutY="50.0" text="Student">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton layoutX="231.0" layoutY="50.0" text="Professor">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </JFXRadioButton>
+   </children>
+</AnchorPane>
