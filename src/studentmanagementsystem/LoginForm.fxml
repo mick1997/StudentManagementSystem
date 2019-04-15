@@ -9,8 +9,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studentmanagementsystem.LoginFormController">
@@ -24,10 +26,8 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <JFXRadioButton fx:id="stuCheckBox" layoutX="52.0" layoutY="37.0" text="Student" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="25.0" />
-                        <JFXRadioButton fx:id="proCheckBox" layoutX="219.0" layoutY="46.0" text="Professor" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="25.0" />
-                        <Label layoutX="103.0" layoutY="57.0" text="User Login:" />
-                        <HBox alignment="CENTER_LEFT" layoutX="103.0" layoutY="84.0" prefHeight="35.0" prefWidth="238.0" style="-fx-border-color: #BEBEBE; -fx-background-radius: 5px; -fx-border-radius: 5px;">
+                        <Label layoutX="93.0" layoutY="79.0" text="User Login:" />
+                        <HBox alignment="CENTER_LEFT" layoutX="93.0" layoutY="106.0" prefHeight="35.0" prefWidth="238.0" style="-fx-border-color: #BEBEBE; -fx-background-radius: 5px; -fx-border-radius: 5px;">
                            <children>
                               <FontAwesomeIconView glyphName="ENVELOPE_ALT" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM">
                                  <HBox.margin>
@@ -40,7 +40,7 @@
                                  </font>
                               </TextField>
                            </children></HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="103.0" layoutY="130.0" prefHeight="35.0" prefWidth="238.0" style="-fx-border-color: #BEBEBE; -fx-background-radius: 5px; -fx-border-radius: 5px;">
+                        <HBox alignment="CENTER_LEFT" layoutX="93.0" layoutY="152.0" prefHeight="35.0" prefWidth="238.0" style="-fx-border-color: #BEBEBE; -fx-background-radius: 5px; -fx-border-radius: 5px;">
                            <children>
                               <FontAwesomeIconView glyphName="LOCK" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM">
                                  <HBox.margin>
@@ -54,8 +54,22 @@
                               </TextField>
                            </children>
                         </HBox>
-                        <JFXButton fx:id="conBTn" layoutX="103.0" layoutY="178.0" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #4EFEB3;" text="Continue" />
-                        <JFXCheckBox fx:id="rememberMeCheckBox" layoutX="222.0" layoutY="184.0" text="REMEMBER ME" unCheckedColor="#bebfc1" />
+                        <JFXButton fx:id="conBTn" layoutX="93.0" layoutY="200.0" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #4EFEB3;" text="Continue" />
+                        <JFXCheckBox fx:id="rememberMeCheckBox" layoutX="212.0" layoutY="206.0" text="REMEMBER ME" unCheckedColor="#bebfc1" />
+                        <HBox alignment="BASELINE_CENTER" layoutX="138.0" layoutY="21.0" prefHeight="50.0" prefWidth="150.0">
+                           <children>
+                              <VBox alignment="CENTER_LEFT" prefHeight="61.0" prefWidth="100.0" spacing="10.0">
+                                 <children>
+                                    <JFXRadioButton fx:id="stuCheckBox" text="Student">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="toggleGroup" />
+                                       </toggleGroup>
+                                    </JFXRadioButton>
+                                    <JFXRadioButton fx:id="proCheckBox" text="Professor" toggleGroup="$toggleGroup" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
                      </children>
                   </AnchorPane>
               </content>
@@ -84,13 +98,13 @@
                                           <HBox alignment="CENTER_LEFT" layoutX="187.0" layoutY="72.0" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: #BEBEBE; -fx-border-radius: 5px; -fx-background-radius: 5px;">
                                              <children>
                                                 <FontAwesomeIconView glyphName="LOCK" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM" />
-                                                <TextField fx:id="stuPassword" promptText="password" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="stuPassword" promptText="Password" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
                                              </children>
                                           </HBox>
                                           <HBox alignment="CENTER_LEFT" layoutX="187.0" layoutY="117.0" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: #BEBEBE; -fx-border-radius: 5px; -fx-background-radius: 5px;">
                                              <children>
                                                 <FontAwesomeIconView glyphName="LOCK" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM" />
-                                                <TextField fx:id="stuPasswordAgain" promptText="password again" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="stuPasswordAgain" promptText="Password again" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
                                              </children>
                                           </HBox>
                                           <JFXButton fx:id="stuBtn" layoutX="124.0" layoutY="170.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4EFEB3;" text="Register">
@@ -120,20 +134,26 @@
                                           <HBox alignment="CENTER_LEFT" layoutX="194.0" layoutY="74.0" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: #BEBEBE; -fx-border-radius: 5px; -fx-background-radius: 5px;">
                                              <children>
                                                 <FontAwesomeIconView glyphName="LOCK" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM" />
-                                                <TextField fx:id="proPassword" promptText="password" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="proPassword" promptText="Password" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
                                              </children>
                                           </HBox>
                                           <HBox alignment="CENTER_LEFT" layoutX="194.0" layoutY="124.0" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: #BEBEBE; -fx-border-radius: 5px; -fx-background-radius: 5px;">
                                              <children>
                                                 <FontAwesomeIconView glyphName="LOCK" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM" />
-                                                <TextField fx:id="proPasswordAgain" promptText="password again" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="proPasswordAgain" promptText="Password again" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
                                              </children>
                                           </HBox>
-                                          <JFXButton fx:id="proBtn" layoutX="137.0" layoutY="172.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4EFEB3;" text="Register">
+                                          <JFXButton fx:id="proBtn" layoutX="137.0" layoutY="216.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4EFEB3;" text="Register">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </JFXButton>
+                                          <HBox alignment="CENTER_LEFT" layoutX="112.0" layoutY="168.0" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: #BEBEBE; -fx-border-radius: 5px; -fx-background-radius: 5px;">
+                                             <children>
+                                                <FontAwesomeIconView glyphName="BOOK" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM" />
+                                                <TextField fx:id="proEmail1" promptText="Course" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
                                        </children></AnchorPane>
                                 </content>
                               </Tab>
