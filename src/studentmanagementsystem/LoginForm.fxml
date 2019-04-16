@@ -51,7 +51,7 @@
                               </TextField>
                            </children>
                         </HBox>
-                        <JFXButton fx:id="conBTn" layoutX="89.0" layoutY="209.0" onAction="#onBtnContinue" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #4EFEB3;" text="Continue" />
+                        <JFXButton fx:id="conBTn" layoutX="89.0" layoutY="209.0" onAction="#onBtnContinue" prefHeight="30.0" prefWidth="100.0" styleClass="btn" stylesheets="@main.css" text="Continue" />
                         <JFXCheckBox fx:id="rememberMeCheckBox" layoutX="208.0" layoutY="215.0" text="REMEMBER ME" unCheckedColor="#bebfc1" />
                         <HBox alignment="CENTER_LEFT" layoutX="53.0" layoutY="168.0" prefHeight="30.0" prefWidth="300.0" style="-fx-border-color: transparent; -fx-background-radius: 5px; -fx-border-radius: 5px;">
                            <children>
@@ -99,7 +99,7 @@
                                                 <TextField fx:id="stuPasswordAgain" promptText="Password again" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
                                              </children>
                                           </HBox>
-                                          <JFXButton fx:id="stuRegBtn" layoutX="124.0" layoutY="180.0" onAction="#onStuRegisterBtn" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4EFEB3;" text="Register">
+                                          <JFXButton fx:id="stuRegBtn" layoutX="124.0" layoutY="180.0" onAction="#onStuRegisterBtn" prefHeight="40.0" prefWidth="100.0" styleClass="btn" stylesheets="@main.css" text="Register">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -140,7 +140,7 @@
                                                 <TextField fx:id="proPasswordAgain" promptText="Password again" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
                                              </children>
                                           </HBox>
-                                          <JFXButton fx:id="proRegBtn" layoutX="130.0" layoutY="212.0" onAction="#onProRegisterBtn" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4EFEB3;" text="Register">
+                                          <JFXButton fx:id="proRegBtn" layoutX="130.0" layoutY="212.0" onAction="#onProRegisterBtn" prefHeight="40.0" prefWidth="100.0" styleClass="btn" stylesheets="@main.css" text="Register">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>

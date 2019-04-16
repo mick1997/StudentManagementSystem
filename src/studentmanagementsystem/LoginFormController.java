@@ -77,6 +77,7 @@ public class LoginFormController {
             Parent loginFace = FXMLLoader.load(getClass().getResource("/StudentManagementSystem/StudentDashBoard.fxml"));
             Scene scene = new Scene(loginFace, 400, 400);
             primaryStage.setScene(scene);
+            primaryStage.setTitle("Student Link");
             primaryStage.show();
         }
         else if (emailTextField.getText().equals("Professor") && passwordTextfield.getText().equals("456")) {
@@ -84,6 +85,7 @@ public class LoginFormController {
             Parent loginFace = FXMLLoader.load(getClass().getResource("/StudentManagementSystem/ProfessorDashBoard.fxml"));
             Scene scene = new Scene(loginFace, 400, 400);
             primaryStage.setScene(scene);
+            primaryStage.setTitle("Professor Link");
             primaryStage.show();
         }
         else {
@@ -92,7 +94,7 @@ public class LoginFormController {
     }
     
     public void onStuRegisterBtn(ActionEvent e) throws Exception {
-        if (stuUserId.getText().equals("Tom") && stuEmail.getText().equals("tom@bu.com") 
+        if (stuUserId.getText().equals("Tom") && stuEmail.getText().equals("tom@bu.edu") 
                 && stuPassword.getText().equals("12345") && stuPasswordAgain.getText().equals("12345")) {
             stuResField.setText("You have registered for the account!");
         }
@@ -103,7 +105,7 @@ public class LoginFormController {
     }
     
     public void onProRegisterBtn(ActionEvent e) throws Exception {
-        if (proUserId.getText().equals("John") && proEmail.getText().equals("john@bu.com") 
+        if (proUserId.getText().equals("John") && proEmail.getText().equals("john@bu.edu") 
                 && proPassword.getText().equals("6789") && proPasswordAgain.getText().equals("6789") 
                 && proCourse.getText().equals("CS622")) {
             proResField.setText("You have registered for the account!");
