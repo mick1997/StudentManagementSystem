@@ -49,6 +49,24 @@ public class LoginFormController {
     @FXML
     private TextField stuResField;
     
+    @FXML
+    private TextField proUserId;
+    
+    @FXML
+    private TextField proEmail;
+    
+    @FXML
+    private TextField proPassword;
+    
+    @FXML
+    private TextField proPasswordAgain;
+    
+    @FXML
+    private TextField proCourse;
+    
+    @FXML
+    private TextField proResField;
+    
     public static Student student;
     public static Professor professor;
     
@@ -74,7 +92,7 @@ public class LoginFormController {
     }
     
     public void onStuRegisterBtn(ActionEvent e) throws Exception {
-        if (stuUserId.getText().equals("Tom") && stuEmail.getText().equals("tom@gmail.com") 
+        if (stuUserId.getText().equals("Tom") && stuEmail.getText().equals("tom@bu.com") 
                 && stuPassword.getText().equals("12345") && stuPasswordAgain.getText().equals("12345")) {
             stuResField.setText("You have registered for the account!");
         }
@@ -84,4 +102,16 @@ public class LoginFormController {
         }
     }
     
+    public void onProRegisterBtn(ActionEvent e) throws Exception {
+        if (proUserId.getText().equals("John") && proEmail.getText().equals("john@bu.com") 
+                && proPassword.getText().equals("6789") && proPasswordAgain.getText().equals("6789") 
+                && proCourse.getText().equals("CS622")) {
+            proResField.setText("You have registered for the account!");
+        }
+        else if (proUserId.getText().equals("") || proEmail.getText().equals("") 
+                || proPassword.getText().equals("") || proPasswordAgain.getText().equals("")
+                || proCourse.getText().equals("")) {
+            proResField.setText("You need to fill in all the fields! Try Again!");
+        }
+    }
 }
