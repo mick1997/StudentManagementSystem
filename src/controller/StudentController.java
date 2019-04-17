@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package studentmanagementsystem;
+package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableColumn;
@@ -20,7 +20,6 @@ import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -98,7 +97,7 @@ public class StudentController implements Initializable {
         enrollBtn.setOnAction((ActionEvent a) -> {
             try {
                 Stage primaryStage = new Stage();
-                Parent stuMainPage = FXMLLoader.load(StudentController.this.getClass().getResource("/StudentManagementSystem/StudentEnrolledDashBoard.fxml"));
+                Parent stuMainPage = FXMLLoader.load(StudentController.this.getClass().getResource("/view/StudentEnrolledDashBoard.fxml"));
                 Scene scene = new Scene(stuMainPage, 400, 400);
                 primaryStage.setScene(scene);
                 primaryStage.show();

@@ -15,7 +15,7 @@ public class StudentManagementSystem extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         
-        Parent root = FXMLLoader.load(getClass().getResource("LoginForm.fxml"));    
+        Parent root = FXMLLoader.load(getClass().getResource("/view/LoginForm.fxml"));    
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Student Managemnet System");

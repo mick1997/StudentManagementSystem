@@ -1,4 +1,4 @@
-package studentmanagementsystem;
+package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableColumn;
@@ -105,7 +105,7 @@ public class StudentEnrolledController implements Initializable {
         backBtn.setOnAction((ActionEvent a) -> {
             try {
                 Stage primaryStage = new Stage();
-                Parent stuMainPage = FXMLLoader.load(StudentEnrolledController.this.getClass().getResource("/StudentManagementSystem/StudentDashBoard.fxml"));
+                Parent stuMainPage = FXMLLoader.load(StudentEnrolledController.this.getClass().getResource("/view/StudentDashBoard.fxml"));
                 Scene scene = new Scene(stuMainPage, 400, 400);
                 primaryStage.setScene(scene);
                 primaryStage.show();

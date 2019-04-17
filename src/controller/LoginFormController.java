@@ -1,4 +1,4 @@
-package studentmanagementsystem;
+package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Professor;
+import model.Student;
 
 /**
  *
@@ -64,7 +66,7 @@ public class LoginFormController {
         
         if (emailTextField.getText().equals("Student") && passwordTextfield.getText().equals("123")) {
             Stage primaryStage = new Stage();
-            Parent loginFace = FXMLLoader.load(getClass().getResource("/StudentManagementSystem/StudentDashBoard.fxml"));
+            Parent loginFace = FXMLLoader.load(getClass().getResource("/view/StudentDashBoard.fxml"));
             Scene scene = new Scene(loginFace, 400, 400);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Student Link");
@@ -72,7 +74,7 @@ public class LoginFormController {
         }
         else if (emailTextField.getText().equals("Professor") && passwordTextfield.getText().equals("456")) {
             Stage primaryStage = new Stage();
-            Parent loginFace = FXMLLoader.load(getClass().getResource("/StudentManagementSystem/ProfessorDashBoard.fxml"));
+            Parent loginFace = FXMLLoader.load(getClass().getResource("/view/ProfessorDashBoard.fxml"));
             Scene scene = new Scene(loginFace, 400, 400);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Professor Link");

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studentmanagementsystem.LoginFormController">
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
@@ -23,39 +23,42 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="90.0" layoutY="48.0" text="User Login:" />
-                        <HBox alignment="CENTER_LEFT" layoutX="90.0" layoutY="75.0" prefHeight="35.0" prefWidth="240.0" styleClass="Hbox" stylesheets="@main.css">
+                        <Label layoutX="94.0" layoutY="40.0" text="User Login:">
+                           <font>
+                              <Font name="Times New Roman" size="24.0" />
+                           </font></Label>
+                        <HBox alignment="CENTER_LEFT" layoutX="90.0" layoutY="75.0" prefHeight="35.0" prefWidth="240.0" styleClass="Hbox" stylesheets="@../css/main.css">
                            <children>
                               <FontAwesomeIconView glyphName="ENVELOPE_ALT" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </FontAwesomeIconView>
-                              <TextField fx:id="emailTextField" promptText="Email Address" styleClass="textField1" stylesheets="@main.css" HBox.hgrow="ALWAYS">
+                              <TextField fx:id="emailTextField" promptText="Email Address" styleClass="textField1" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
                            </children></HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="90.0" layoutY="121.0" prefHeight="35.0" prefWidth="240.0" styleClass="Hbox" stylesheets="@main.css">
+                        <HBox alignment="CENTER_LEFT" layoutX="90.0" layoutY="121.0" prefHeight="35.0" prefWidth="240.0" styleClass="Hbox" stylesheets="@../css/main.css">
                            <children>
                               <FontAwesomeIconView glyphName="LOCK" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </FontAwesomeIconView>
-                              <TextField fx:id="passwordTextfield" promptText="password" styleClass="textField1" stylesheets="@main.css" HBox.hgrow="ALWAYS">
+                              <TextField fx:id="passwordTextfield" promptText="password" styleClass="textField1" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
                            </children>
                         </HBox>
-                        <JFXButton fx:id="conBTn" layoutX="89.0" layoutY="209.0" onAction="#onBtnContinue" prefHeight="30.0" prefWidth="100.0" styleClass="btn" stylesheets="@main.css" text="Continue" />
+                        <JFXButton fx:id="conBTn" layoutX="89.0" layoutY="209.0" onAction="#onBtnContinue" prefHeight="30.0" prefWidth="100.0" styleClass="btn" stylesheets="@../css/main.css" text="Continue" />
                         <JFXCheckBox fx:id="rememberMeCheckBox" layoutX="208.0" layoutY="215.0" text="REMEMBER ME" unCheckedColor="#bebfc1" />
                         <HBox alignment="CENTER_LEFT" layoutX="53.0" layoutY="168.0" prefHeight="30.0" prefWidth="300.0" style="-fx-border-color: transparent; -fx-background-radius: 5px; -fx-border-radius: 5px;">
                            <children>
-                              <TextField fx:id="resField" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+                              <TextField fx:id="resField" styleClass="textField1" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -76,37 +79,37 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="261.0">
                                        <children>
-                                          <HBox alignment="CENTER_LEFT" layoutX="13.0" layoutY="54.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@main.css">
+                                          <HBox alignment="CENTER_LEFT" layoutX="13.0" layoutY="54.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@../css/main.css">
                                              <children>
                                                 <FontAwesomeIconView glyphName="USER" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM" />
-                                                <TextField fx:id="stuUserId" promptText="User ID" styleClass="textField1" stylesheets="@main.css" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="stuUserId" promptText="User ID" styleClass="textField1" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS" />
                                              </children></HBox>
-                                          <HBox alignment="CENTER_LEFT" layoutX="13.0" layoutY="99.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@main.css">
+                                          <HBox alignment="CENTER_LEFT" layoutX="13.0" layoutY="99.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@../css/main.css">
                                              <children>
                                                 <FontAwesomeIconView glyphName="ENVELOPE" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM" />
-                                                <TextField fx:id="stuEmail" promptText="Email Address" styleClass="textField1" stylesheets="@main.css" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="stuEmail" promptText="Email Address" styleClass="textField1" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS" />
                                              </children>
                                           </HBox>
-                                          <HBox alignment="CENTER_LEFT" layoutX="186.0" layoutY="54.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@main.css">
+                                          <HBox alignment="CENTER_LEFT" layoutX="186.0" layoutY="54.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@../css/main.css">
                                              <children>
                                                 <FontAwesomeIconView glyphName="LOCK" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM" />
-                                                <TextField fx:id="stuPassword" promptText="Password" styleClass="textField1" stylesheets="@main.css" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="stuPassword" promptText="Password" styleClass="textField1" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS" />
                                              </children>
                                           </HBox>
-                                          <HBox alignment="CENTER_LEFT" layoutX="186.0" layoutY="99.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@main.css">
+                                          <HBox alignment="CENTER_LEFT" layoutX="186.0" layoutY="99.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@../css/main.css">
                                              <children>
                                                 <FontAwesomeIconView glyphName="LOCK" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM" />
-                                                <TextField fx:id="stuPasswordAgain" promptText="Password again" styleClass="textField1" stylesheets="@main.css" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="stuPasswordAgain" promptText="Password again" styleClass="textField1" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS" />
                                              </children>
                                           </HBox>
-                                          <JFXButton fx:id="stuRegBtn" layoutX="124.0" layoutY="180.0" onAction="#onStuRegisterBtn" prefHeight="40.0" prefWidth="100.0" styleClass="btn" stylesheets="@main.css" text="Register">
+                                          <JFXButton fx:id="stuRegBtn" layoutX="124.0" layoutY="180.0" onAction="#onStuRegisterBtn" prefHeight="40.0" prefWidth="100.0" styleClass="btn" stylesheets="@../css/main.css" text="Register">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </JFXButton>
                                           <HBox alignment="CENTER_LEFT" layoutX="24.0" layoutY="139.0" prefHeight="20.0" prefWidth="300.0" style="-fx-border-color: transparent; -fx-border-radius: 5px; -fx-background-radius: 5px;">
                                              <children>
-                                                <TextField fx:id="stuResField" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="stuResField" styleClass="textField1" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS" />
                                              </children>
                                           </HBox>
                                        </children></AnchorPane>
@@ -116,46 +119,42 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="36.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@main.css">
+                                          <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="36.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@../css/main.css">
                                              <children>
                                                 <FontAwesomeIconView glyphName="USER" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM" />
-                                                <TextField fx:id="proUserId" promptText="User ID" styleClass="textField1" stylesheets="@main.css" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="proUserId" promptText="User ID" styleClass="textField1" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS" />
                                              </children>
                                           </HBox>
-                                          <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="86.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@main.css">
+                                          <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="86.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@../css/main.css">
                                              <children>
                                                 <FontAwesomeIconView glyphName="ENVELOPE" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM" />
-                                                <TextField fx:id="proEmail" promptText="Email Address" styleClass="textField1" stylesheets="@main.css" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="proEmail" promptText="Email Address" styleClass="textField1" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS" />
                                              </children>
                                           </HBox>
-                                          <HBox alignment="CENTER_LEFT" layoutX="187.0" layoutY="36.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@main.css">
+                                          <HBox alignment="CENTER_LEFT" layoutX="187.0" layoutY="36.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@../css/main.css">
                                              <children>
                                                 <FontAwesomeIconView glyphName="LOCK" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM" />
-                                                <TextField fx:id="proPassword" promptText="Password" styleClass="textField1" stylesheets="@main.css" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="proPassword" promptText="Password" styleClass="textField1" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS" />
                                              </children>
                                           </HBox>
-                                          <HBox alignment="CENTER_LEFT" layoutX="187.0" layoutY="86.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@main.css">
+                                          <HBox alignment="CENTER_LEFT" layoutX="187.0" layoutY="86.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@../css/main.css">
                                              <children>
                                                 <FontAwesomeIconView glyphName="LOCK" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM" />
-                                                <TextField fx:id="proPasswordAgain" promptText="Password again" styleClass="textField1" stylesheets="@main.css" HBox.hgrow="ALWAYS" />
-                                             </children>
-                                          </HBox>
-                                          <JFXButton fx:id="proRegBtn" layoutX="130.0" layoutY="212.0" onAction="#onProRegisterBtn" prefHeight="40.0" prefWidth="100.0" styleClass="btn" stylesheets="@main.css" text="Register">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </JFXButton>
-                                          <HBox alignment="CENTER_LEFT" layoutX="105.0" layoutY="130.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@main.css">
-                                             <children>
-                                                <FontAwesomeIconView glyphName="BOOK" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM" />
-                                                <TextField fx:id="proCourse" promptText="Course" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="proPasswordAgain" promptText="Password again" styleClass="textField1" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS" />
                                              </children>
                                           </HBox>
                                           <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="172.0" prefHeight="20.0" prefWidth="300.0" style="-fx-border-color: transparent; -fx-border-radius: 5px; -fx-background-radius: 5px;">
                                              <children>
-                                                <TextField fx:id="proResField" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="proResField" styleClass="textField1" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS" />
                                              </children>
                                           </HBox>
+                                          <HBox alignment="CENTER_LEFT" layoutX="105.0" layoutY="132.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@../css/main.css">
+                                             <children>
+                                                <FontAwesomeIconView glyphName="BOOK" glyphStyle="-fx-fill:#BEBEBE" size="1.2EM" />
+                                                <TextField fx:id="proCourse" promptText="Course" styleClass="textField1" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <JFXButton layoutX="135.0" layoutY="215.0" onAction="#onProRegisterBtn" prefHeight="39.0" prefWidth="91.0" styleClass="btn" stylesheets="@../css/main.css" text="Register" />
                                        </children></AnchorPane>
                                 </content>
                               </Tab>
