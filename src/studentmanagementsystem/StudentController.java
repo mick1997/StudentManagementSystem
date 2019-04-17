@@ -14,11 +14,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.util.Callback;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.io.IOException;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -95,22 +93,17 @@ public class StudentController implements Initializable {
     }
     
     @FXML
-    public void onEnrollBtn(ActionEvent e) {
+    public void onEnrollBtn() {
         
-        enrollBtn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent o) {
-                try {
-                    Stage primaryStage = new Stage();
-                    Parent stuMainPage = FXMLLoader.load(StudentController.this.getClass().getResource("/StudentManagementSystem/StudentEnrolledDashBoard.fxml"));
-                    Scene scene = new Scene(stuMainPage, 400, 400);
-                    primaryStage.setScene(scene);
-                    primaryStage.show();
-                }
-                catch (IOException e) {
-                    e.printStackTrace();
-                }
+        enrollBtn.setOnAction((ActionEvent a) -> {
+            try {
+                Stage primaryStage = new Stage();
+                Parent stuMainPage = FXMLLoader.load(StudentController.this.getClass().getResource("/StudentManagementSystem/StudentEnrolledDashBoard.fxml"));
+                Scene scene = new Scene(stuMainPage, 400, 400);
+                primaryStage.setScene(scene);
+                primaryStage.show();
+            }
+            catch (IOException e) {
             }
         });
     }

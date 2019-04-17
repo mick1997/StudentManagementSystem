@@ -92,3 +92,13 @@ and open the template in the editor.
     -fx-border-color: transparent;
     -fx-background-color:  #BBFFFF
 }
+
+.textField1 {
+    -fx-background-color: transparent
+}
+
+.Hbox {
+    -fx-border-color:  #BEBEBE;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px
+}

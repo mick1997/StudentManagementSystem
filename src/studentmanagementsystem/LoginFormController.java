@@ -1,22 +1,11 @@
 package studentmanagementsystem;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXRadioButton;
-import java.io.IOException;
-import java.net.URL;
-import java.time.Duration;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
 /**
@@ -70,6 +59,7 @@ public class LoginFormController {
     public static Student student;
     public static Professor professor;
     
+    @FXML
     public void onBtnContinue(ActionEvent e) throws Exception {
         
         if (emailTextField.getText().equals("Student") && passwordTextfield.getText().equals("123")) {
@@ -93,6 +83,7 @@ public class LoginFormController {
         }
     }
     
+    @FXML
     public void onStuRegisterBtn(ActionEvent e) throws Exception {
         if (stuUserId.getText().equals("Tom") && stuEmail.getText().equals("tom@bu.edu") 
                 && stuPassword.getText().equals("12345") && stuPasswordAgain.getText().equals("12345")) {
@@ -104,6 +95,7 @@ public class LoginFormController {
         }
     }
     
+    @FXML
     public void onProRegisterBtn(ActionEvent e) throws Exception {
         if (proUserId.getText().equals("John") && proEmail.getText().equals("john@bu.edu") 
                 && proPassword.getText().equals("6789") && proPasswordAgain.getText().equals("6789") 

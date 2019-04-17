@@ -5,6 +5,7 @@
  */
 package studentmanagementsystem;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
@@ -12,16 +13,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import com.jfoenix.controls.JFXTreeTableView;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -36,6 +37,10 @@ public class ProfessorController implements Initializable {
     
     @FXML
     private JFXTreeTableView<Professor> proTreeView;
+    
+    @FXML
+    private JFXButton exitBtn;
+    
     /**
      * Initializes the controller class.
      */
@@ -53,7 +58,7 @@ public class ProfessorController implements Initializable {
         JFXTreeTableColumn<Professor, String> gradeCol = new JFXTreeTableColumn<>("Grade");
         gradeCol.setPrefWidth(150);
         gradeCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<Professor, String> param) -> param.getValue().getValue().grade);
-        
+       
         ObservableList<Professor> users = FXCollections.observableArrayList();
         users.add(new Professor("001", "John", "A"));
         users.add(new Professor("002", "Erick", "B"));
@@ -75,5 +80,11 @@ public class ProfessorController implements Initializable {
             this.stuName = new SimpleStringProperty(stuName);
             this.grade = new SimpleStringProperty(grade);
         }
+    }
+    
+    @FXML
+    public void onExitBtn() {
+        
+        exitBtn.setOnAction((ActionEvent a) -> { System.exit(0);});
     }
 }
