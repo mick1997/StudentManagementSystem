@@ -2,14 +2,27 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentEnrolledController">
    <children>
-      <JFXTreeTableView fx:id="stuEnrollTreeView" layoutX="6.0" prefHeight="400.0" prefWidth="585.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <JFXTreeTableView fx:id="stuEnrollTreeView" layoutX="6.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <JFXButton fx:id="backBtn" layoutX="87.0" layoutY="312.0" onAction="#onBackStuMain" prefHeight="57.0" prefWidth="127.0" styleClass="btn" stylesheets="@../css/main.css" text="Back" />
       <JFXButton fx:id="enrollBtn" layoutX="353.0" layoutY="312.0" onAction="#onFinishedEnroll" prefHeight="57.0" prefWidth="127.0" styleClass="btn" stylesheets="@../css/main.css" text="Enroll" />
-      <TextField fx:id="onFinishedEnroll" layoutX="150.0" layoutY="266.0" prefHeight="30.0" prefWidth="300.0" styleClass="textField1" stylesheets="@../css/main.css" />
+      <TextField fx:id="resTextField" layoutX="150.0" layoutY="274.0" prefHeight="30.0" prefWidth="300.0" styleClass="textField1" stylesheets="@../css/main.css" />
+      <Label layoutX="155.0" layoutY="211.0" text="Please choose the Course and Section to enroll" />
+      <HBox layoutX="151.0" layoutY="236.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@../css/main.css">
+         <children>
+            <TextField fx:id="courseNameTextField" promptText="Course Name" styleClass="textField1" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      <HBox layoutX="315.0" layoutY="236.0" prefHeight="30.0" prefWidth="150.0" styleClass="Hbox" stylesheets="@../css/main.css">
+         <children>
+            <TextField fx:id="sectionTextField" promptText="Section" styleClass="textField1" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

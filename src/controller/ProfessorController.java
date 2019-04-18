@@ -18,11 +18,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import com.jfoenix.controls.JFXTreeTableView;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -48,20 +47,26 @@ public class ProfessorController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         JFXTreeTableColumn<Professor, String> stdIdCol = new JFXTreeTableColumn<>("Student ID");
-        stdIdCol.setPrefWidth(150);
+        stdIdCol.setPrefWidth(200);
         stdIdCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<Professor, String> param) -> param.getValue().getValue().stuId);
         
         JFXTreeTableColumn<Professor, String> stuNameCol = new JFXTreeTableColumn<>("Student Name");
-        stuNameCol.setPrefWidth(150);
+        stuNameCol.setPrefWidth(200);
         stuNameCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<Professor, String> param) -> param.getValue().getValue().stuName);
         
         JFXTreeTableColumn<Professor, String> gradeCol = new JFXTreeTableColumn<>("Grade");
-        gradeCol.setPrefWidth(150);
+        gradeCol.setPrefWidth(200);
         gradeCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<Professor, String> param) -> param.getValue().getValue().grade);
        
         ObservableList<Professor> users = FXCollections.observableArrayList();
-        users.add(new Professor("001", "John", "A"));
-        users.add(new Professor("002", "Erick", "B"));
+        users.add(new Professor("001", "John Franklin", "A"));
+        users.add(new Professor("002", "Erick Educade", "B+"));
+        users.add(new Professor("003", "Tom Papper", "B"));
+        users.add(new Professor("004", "Alice Lee", "A-"));
+        users.add(new Professor("005", "Michael Dee", "B-"));
+        users.add(new Professor("006", "Jack Song", "B+"));
+        users.add(new Professor("007", "Hank Tomsham", "B"));
+        users.add(new Professor("008", "Walrd Dalles", "B"));
         
         final TreeItem<Professor> root = new RecursiveTreeItem<>(users, RecursiveTreeObject::getChildren);
         proTreeView.getColumns().setAll(stdIdCol, stuNameCol, gradeCol);
@@ -84,7 +89,7 @@ public class ProfessorController implements Initializable {
     
     @FXML
     public void onExitBtn() {
-        
-        exitBtn.setOnAction((ActionEvent a) -> { System.exit(0);});
+        Stage stage = (Stage) exitBtn.getScene().getWindow();
+        stage.close();
     }
 }

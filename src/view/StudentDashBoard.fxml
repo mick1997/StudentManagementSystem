@@ -9,12 +9,12 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentController">
    <children>
-      <JFXButton fx:id="enrollBtn" buttonType="RAISED" layoutX="211.0" layoutY="315.0" onAction="#onEnrollBtn" prefHeight="51.0" prefWidth="178.0" styleClass="btn" stylesheets="@../css/main.css" text="Enroll in new Course " />
+      <JFXButton fx:id="enrollBtn" buttonType="RAISED" layoutX="61.0" layoutY="315.0" onAction="#onEnrollBtn" prefHeight="51.0" prefWidth="178.0" styleClass="btn" stylesheets="@../css/main.css" text="Enroll in new Course " />
       <HBox layoutY="-1.0" prefHeight="51.0" prefWidth="488.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox prefHeight="51.0" prefWidth="297.0" styleClass="textField" stylesheets="@../css/main.css">
                <children>
-                  <TextField prefHeight="51.0" prefWidth="297.0" styleClass="textField1" stylesheets="@../css/main.css" text="ID: 1">
+                  <TextField prefHeight="51.0" prefWidth="297.0" styleClass="textField1" stylesheets="@../css/main.css" text="ID: 001">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -23,7 +23,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="302.0" styleClass="textField" stylesheets="@../css/main.css" HBox.hgrow="ALWAYS">
                <children>
-                  <TextField prefHeight="52.0" prefWidth="302.0" styleClass="textField1" stylesheets="@../css/main.css" text="Student: 123">
+                  <TextField prefHeight="52.0" prefWidth="302.0" styleClass="textField1" stylesheets="@../css/main.css" text="Student: John Franklin">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -33,5 +33,6 @@
          </children>
       </HBox>
       <JFXTreeTableView fx:id="stuTreeView" layoutX="6.0" layoutY="51.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+      <JFXButton fx:id="exitBtn" layoutX="358.0" layoutY="315.0" onAction="#onExitBtn" prefHeight="51.0" prefWidth="178.0" styleClass="btn" stylesheets="@../css/main.css" text="Exit" />
    </children>
 </AnchorPane>

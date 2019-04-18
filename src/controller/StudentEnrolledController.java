@@ -45,8 +45,14 @@ public class StudentEnrolledController implements Initializable {
     private JFXButton enrollBtn;
     
     @FXML
+    private TextField courseNameTextField;
+    
+    @FXML
+    private TextField sectionTextField;
+    
+    @FXML
     private TextField resTextField;
-
+    
     /**
      * Initializes the controller class.
      */
@@ -56,20 +62,29 @@ public class StudentEnrolledController implements Initializable {
         courseCol.setPrefWidth(150);
         courseCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<StudentEnroll, String> param) -> param.getValue().getValue().course);
         
-        JFXTreeTableColumn<StudentEnroll, String> teacherIdCol = new JFXTreeTableColumn<>("Teacher ID");
-        teacherIdCol.setPrefWidth(150);
-        teacherIdCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<StudentEnroll, String> param) -> param.getValue().getValue().teacherId);
+        JFXTreeTableColumn<StudentEnroll, String> courseNameCol = new JFXTreeTableColumn<>("Course Name");
+        courseNameCol.setPrefWidth(150);
+        courseNameCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<StudentEnroll, String> param) -> param.getValue().getValue().courseName);
         
-        JFXTreeTableColumn<StudentEnroll, String> teacherNameCol = new JFXTreeTableColumn<>("Teacher Name");
+        JFXTreeTableColumn<StudentEnroll, String> sectionCol = new JFXTreeTableColumn<>("Section");
+        sectionCol.setPrefWidth(150);
+        sectionCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<StudentEnroll, String> param) -> param.getValue().getValue().section);
+        
+        JFXTreeTableColumn<StudentEnroll, String> teacherNameCol = new JFXTreeTableColumn<>("Professor");
         teacherNameCol.setPrefWidth(150);
         teacherNameCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<StudentEnroll, String> param) -> param.getValue().getValue().teacherName);
         
         ObservableList<StudentEnroll> users = FXCollections.observableArrayList();
-        users.add(new StudentEnroll("CS622", "001", "Dr. John"));
-        users.add(new StudentEnroll("CS767", "010", "Dr. Erick"));
+        users.add(new StudentEnroll("CS622", "Advance Java Programming", "A", "Dr. John"));
+        users.add(new StudentEnroll("CS622", "Advance Java Programming", "B", "Dr. John"));
+        users.add(new StudentEnroll("CS622", "Advance Java Programming", "C", "Dr. John"));
+        users.add(new StudentEnroll("CS622", "Advance Java Programming", "O1", "Dr. John"));
+        users.add(new StudentEnroll("CS767", "Machine Learning", "B", "Dr. Erick"));
+        users.add(new StudentEnroll("CS767", "Machine Learning", "C", "Dr. Erick"));
+        users.add(new StudentEnroll("CS767", "Machine Learning", "D", "Dr. Erick"));
         
         final TreeItem<StudentEnroll> root = new RecursiveTreeItem<>(users, RecursiveTreeObject::getChildren);
-        stuEnrollTreeView.getColumns().setAll(courseCol, teacherIdCol, teacherNameCol);
+        stuEnrollTreeView.getColumns().setAll(courseCol, courseNameCol, sectionCol, teacherNameCol);
         stuEnrollTreeView.setRoot(root);
         stuEnrollTreeView.setShowRoot(false);
     }    
@@ -77,12 +92,14 @@ public class StudentEnrolledController implements Initializable {
     class StudentEnroll extends RecursiveTreeObject<StudentEnroll> {
         
         StringProperty course;
-        StringProperty teacherId;
+        StringProperty courseName;
+        StringProperty section;
         StringProperty teacherName;
         
-        public StudentEnroll(String course, String teacherId, String teacherName) {
+        public StudentEnroll(String course, String courseName, String section, String teacherName) {
             this.course = new SimpleStringProperty(course);
-            this.teacherId = new SimpleStringProperty(teacherId);
+            this.courseName = new SimpleStringProperty(courseName);
+            this.section = new SimpleStringProperty(section);
             this.teacherName = new SimpleStringProperty(teacherName);
         }
     }
@@ -90,29 +107,19 @@ public class StudentEnrolledController implements Initializable {
     @FXML
     public void onFinishedEnroll() {
         
-        enrollBtn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent a) {
-                resTextField.setText("You have enrolled in this course!");
-            }
-        });
+        if (courseNameTextField.getText().equals("CS622") && sectionTextField.getText().equals("O1")) {
+            enrollBtn.setOnAction((ActionEvent a) -> {
+            resTextField.setText("You have enrolled in this course!");
+            });
+        }
+        else if (courseNameTextField.getText().equals("") || sectionTextField.getText().equals("")) {
+            resTextField.setText("You need to fill in all the fields! Try Again!");
+        }
     }
     
     @FXML
     public void onBackStuMain() {
-    
-        backBtn.setOnAction((ActionEvent a) -> {
-            try {
-                Stage primaryStage = new Stage();
-                Parent stuMainPage = FXMLLoader.load(StudentEnrolledController.this.getClass().getResource("/view/StudentDashBoard.fxml"));
-                Scene scene = new Scene(stuMainPage, 400, 400);
-                primaryStage.setScene(scene);
-                primaryStage.show();
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+        Stage stage = (Stage) backBtn.getScene().getWindow();
+        stage.close();
     }
 }

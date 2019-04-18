@@ -45,6 +45,9 @@ public class StudentController implements Initializable {
     @FXML
     private JFXButton enrollBtn;
     
+    @FXML
+    private JFXButton exitBtn;
+    
     /**
      * Initializes the controller class.
      */
@@ -69,9 +72,11 @@ public class StudentController implements Initializable {
         ObservableList<Student> users = FXCollections.observableArrayList();
         users.add(new Student("CS622", "001", "Dr. John", "A"));
         users.add(new Student("CS767", "010", "Dr. Erick", "B"));
+        users.add(new Student("CS669", "011", "Dr. Tom", "B"));
+        users.add(new Student("CS699", "012", "Dr. Lee", "B"));
         
         final TreeItem<Student> root = new RecursiveTreeItem<>(users, RecursiveTreeObject::getChildren);
-        stuTreeView.getColumns().setAll(courseCol, teacherIdCol, teacherNameCol);
+        stuTreeView.getColumns().setAll(courseCol, teacherIdCol, teacherNameCol, gradeCol);
         stuTreeView.setRoot(root);
         stuTreeView.setShowRoot(false);
     }
@@ -98,7 +103,7 @@ public class StudentController implements Initializable {
             try {
                 Stage primaryStage = new Stage();
                 Parent stuMainPage = FXMLLoader.load(StudentController.this.getClass().getResource("/view/StudentEnrolledDashBoard.fxml"));
-                Scene scene = new Scene(stuMainPage, 400, 400);
+                Scene scene = new Scene(stuMainPage);
                 primaryStage.setScene(scene);
                 primaryStage.show();
             }
@@ -107,4 +112,9 @@ public class StudentController implements Initializable {
         });
     }
     
+    @FXML
+    public void onExitBtn() {
+        Stage stage = (Stage) exitBtn.getScene().getWindow();
+        stage.close();
+    }
 }
