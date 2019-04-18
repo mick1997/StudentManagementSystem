@@ -6,16 +6,20 @@ package model;
  */
 public class Student {
     
+    // instance variable: name, email, stuId
     private String name;
     private String email;
-    private Integer stuId = -1;
+    private Integer stuId;
     
+    // Student constructor
     public Student(String name, String email, Integer stuId) {
         this.name = name;
         this.email = email;
         this.stuId = stuId;
     }
 
+    // get and set method for name, email and stuId
+    
     public String getName() {
         return name;
     }

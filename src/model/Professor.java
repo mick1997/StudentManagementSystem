@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 /**
@@ -11,20 +6,22 @@ package model;
  */
 public class Professor {
     
+    // instance variable: name, email, course, proId 
     private String name;
     private String email;
     private String course;
-    private Integer proId = -1;
+    private Integer proId;
     
+    // Professor constructor
     public Professor(String name, String email, String course, Integer proId) {
         this.name = name;
         this.email = email;
         this.course = course;
         this.proId = proId;
     }
-    
-    public Professor() {}
 
+    // get and set method for name, email, course, proId
+    
     public String getName() {
         return name;
     }

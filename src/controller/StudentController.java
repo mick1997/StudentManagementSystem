@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import com.jfoenix.controls.JFXButton;
@@ -25,7 +20,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
@@ -36,8 +30,10 @@ import javafx.stage.Stage;
  */
 public class StudentController implements Initializable {
 
-    @FXML
-    private AnchorPane main;
+    /*****
+     * JFXTreeTableView<Student>: stuTreeView
+     * JFXButton: enrollBtn, exitBtn
+     */
     
     @FXML
     private JFXTreeTableView<Student> stuTreeView;
@@ -53,6 +49,8 @@ public class StudentController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        // set JFXTreeTableView<Student> each column as Course, Teacher ID, Teacher Name, Grade
         JFXTreeTableColumn<Student, String> courseCol = new JFXTreeTableColumn<>("Course");
         courseCol.setPrefWidth(150);
         courseCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<Student, String> param) -> param.getValue().getValue().course);
@@ -69,20 +67,24 @@ public class StudentController implements Initializable {
         gradeCol.setPrefWidth(150);
         gradeCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<Student, String> param) -> param.getValue().getValue().grade);
         
+        // use ObservableList to store all the information
         ObservableList<Student> users = FXCollections.observableArrayList();
         users.add(new Student("CS622", "001", "Dr. John", "A"));
         users.add(new Student("CS767", "010", "Dr. Erick", "B"));
         users.add(new Student("CS669", "011", "Dr. Tom", "B"));
         users.add(new Student("CS699", "012", "Dr. Lee", "B"));
         
+        // set all column to stuTreeView
         final TreeItem<Student> root = new RecursiveTreeItem<>(users, RecursiveTreeObject::getChildren);
         stuTreeView.getColumns().setAll(courseCol, teacherIdCol, teacherNameCol, gradeCol);
         stuTreeView.setRoot(root);
         stuTreeView.setShowRoot(false);
     }
     
+    // Student nested class
     class Student extends RecursiveTreeObject<Student> {
         
+        // instance variable: course, teacherId, teacherName, grade
         StringProperty course;
         StringProperty teacherId;
         StringProperty teacherName;
@@ -96,6 +98,9 @@ public class StudentController implements Initializable {
         }
     }
     
+    /**
+     * change the stage to enroll window
+     */
     @FXML
     public void onEnrollBtn() {
         
@@ -105,6 +110,7 @@ public class StudentController implements Initializable {
                 Parent stuMainPage = FXMLLoader.load(StudentController.this.getClass().getResource("/view/StudentEnrolledDashBoard.fxml"));
                 Scene scene = new Scene(stuMainPage);
                 primaryStage.setScene(scene);
+                primaryStage.setTitle("Student Enroll Link");
                 primaryStage.show();
             }
             catch (IOException e) {
@@ -112,6 +118,9 @@ public class StudentController implements Initializable {
         });
     }
     
+    /**
+     * exit the current window
+     */
     @FXML
     public void onExitBtn() {
         Stage stage = (Stage) exitBtn.getScene().getWindow();

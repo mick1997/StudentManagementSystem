@@ -13,8 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.Professor;
-import model.Student;
 
 /**
  *
@@ -22,6 +20,14 @@ import model.Student;
  */
 public class LoginFormController implements Initializable {
     
+    /***
+     * TextField: emailTextField, resField, stuUserId, stuEmail, stuResField, 
+     *            proUserId, proEmail, proCourse, proResField
+     * PasswordField: passwordTextfield, stuPassword, stuPasswordAgain, 
+     *                proPassword, proPasswordAgain
+     * JFXCheckBox: rememberMeCheckBox
+     * Preferences: preferences
+     */
     @FXML
     private TextField emailTextField;
     
@@ -69,13 +75,15 @@ public class LoginFormController implements Initializable {
     
     Preferences preferences;
     
-    public static Student student;
-    public static Professor professor;
-    
+    /***
+     * @param e
+     * @throws Exception
+     * check email and password for entering to account
+     */
     @FXML
     public void onBtnContinue(ActionEvent e) throws Exception {
         
-        if (emailTextField.getText().equals("Student") && passwordTextfield.getText().equals("123")) {
+        if (emailTextField.getText().equals("Student@bu.edu") && passwordTextfield.getText().equals("123")) {
             rememberMe();
             Stage primaryStage = new Stage();
             Parent loginFace = FXMLLoader.load(getClass().getResource("/view/StudentDashBoard.fxml"));
@@ -84,7 +92,7 @@ public class LoginFormController implements Initializable {
             primaryStage.setTitle("Student Link");
             primaryStage.show();
         }
-        else if (emailTextField.getText().equals("Professor") && passwordTextfield.getText().equals("456")) {
+        else if (emailTextField.getText().equals("Professor@bu.edu") && passwordTextfield.getText().equals("456")) {
             rememberMe();
             Stage primaryStage = new Stage();
             Parent loginFace = FXMLLoader.load(getClass().getResource("/view/ProfessorDashBoard.fxml"));
@@ -98,6 +106,9 @@ public class LoginFormController implements Initializable {
         }
     }
     
+    /***
+     * remember email and password for next time use
+     */
     public void rememberMe() {
         if (rememberMeCheckBox.isSelected()) {
                 preferences.put("emailTextField", emailTextField.getText());
@@ -109,6 +120,11 @@ public class LoginFormController implements Initializable {
             }
     }
     
+    /****
+     * @param e
+     * @throws Exception
+     * registration for Student account
+     */
     @FXML
     public void onStuRegisterBtn(ActionEvent e) throws Exception {
         
@@ -122,6 +138,11 @@ public class LoginFormController implements Initializable {
         }
     }
     
+    /***
+     * @param e
+     * @throws Exception
+     * registration for Professor account
+     */
     @FXML
     public void onProRegisterBtn(ActionEvent e) throws Exception {
         
@@ -137,11 +158,15 @@ public class LoginFormController implements Initializable {
         }
     }
 
+    /**
+     * Initializes the controller class.
+     */
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        
+    public void initialize(URL url, ResourceBundle rb) {
+        // preferences for using userNodeForPackage with LoginFormController.class
         preferences = Preferences.userNodeForPackage(LoginFormController.class);
         
+        // make sure the preferences get emailTextField is not null and empty
         if (preferences != null) {
             if (preferences.get("emailTextField", null) != null && !preferences.get("emailTextField", null).isEmpty()) {
                 emailTextField.setText(preferences.get("emailTextField", null));

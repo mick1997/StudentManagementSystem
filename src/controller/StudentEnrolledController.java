@@ -5,7 +5,6 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,16 +12,11 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -32,8 +26,11 @@ import javafx.stage.Stage;
  */
 public class StudentEnrolledController implements Initializable {
     
-    @FXML
-    private AnchorPane main;
+    /***
+     * JFXTreeTableView<StudentEnroll>: stuEnrollTreeView
+     * JFXButton: backBtn, enrollBtn
+     * TextField: courseNameTextField, sectionTextField, resTextField
+     */
     
     @FXML
     private JFXTreeTableView<StudentEnroll> stuEnrollTreeView;
@@ -58,6 +55,8 @@ public class StudentEnrolledController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        // set JFXTreeTableView<StudentEnroll> each column as Course, Course Name, Section, Professor
         JFXTreeTableColumn<StudentEnroll, String> courseCol = new JFXTreeTableColumn<>("Course");
         courseCol.setPrefWidth(150);
         courseCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<StudentEnroll, String> param) -> param.getValue().getValue().course);
@@ -74,6 +73,7 @@ public class StudentEnrolledController implements Initializable {
         teacherNameCol.setPrefWidth(150);
         teacherNameCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<StudentEnroll, String> param) -> param.getValue().getValue().teacherName);
         
+        // use ObservableList to store all the information
         ObservableList<StudentEnroll> users = FXCollections.observableArrayList();
         users.add(new StudentEnroll("CS622", "Advance Java Programming", "A", "Dr. John"));
         users.add(new StudentEnroll("CS622", "Advance Java Programming", "B", "Dr. John"));
@@ -83,14 +83,17 @@ public class StudentEnrolledController implements Initializable {
         users.add(new StudentEnroll("CS767", "Machine Learning", "C", "Dr. Erick"));
         users.add(new StudentEnroll("CS767", "Machine Learning", "D", "Dr. Erick"));
         
+        // set all column to stuEnrollTreeView
         final TreeItem<StudentEnroll> root = new RecursiveTreeItem<>(users, RecursiveTreeObject::getChildren);
         stuEnrollTreeView.getColumns().setAll(courseCol, courseNameCol, sectionCol, teacherNameCol);
         stuEnrollTreeView.setRoot(root);
         stuEnrollTreeView.setShowRoot(false);
     }    
     
+    // StudentEnroll nested class
     class StudentEnroll extends RecursiveTreeObject<StudentEnroll> {
         
+        // instance variable: course, courseName, section, teacherName
         StringProperty course;
         StringProperty courseName;
         StringProperty section;
@@ -104,6 +107,9 @@ public class StudentEnrolledController implements Initializable {
         }
     }
     
+    /**
+     * finish enrolled the course by enter course name and section
+     */
     @FXML
     public void onFinishedEnroll() {
         
@@ -117,6 +123,9 @@ public class StudentEnrolledController implements Initializable {
         }
     }
     
+    /**
+     * go back pervious window by close current window
+     */
     @FXML
     public void onBackStuMain() {
         Stage stage = (Stage) backBtn.getScene().getWindow();
